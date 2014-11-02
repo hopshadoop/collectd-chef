@@ -1,0 +1,80 @@
+# Threshold configuration for collectd(1).
+#
+# See the section "THRESHOLD CONFIGURATION" in collectd.conf(5) for details.
+
+# Threshold configuration for datanodes.
+
+<Threshold>
+
+        <Plugin "GenericJMX">
+                <Type "gauge">
+                        Instance "HeartbeatsAvgTime"
+                        WarningMin 0
+                        WarningMax 10
+                        FailureMin 0
+                        FailureMax 20
+                </Type>
+        </Plugin>
+
+#        <Plugin "GenericJMX">
+#                <Type "gauge">
+#                        Instance "BlockChecksumOpAvgTime"
+#                        WarningMin 0
+#                        WarningMax 5
+#                        FailureMin 0
+#                        FailureMax 10
+#                </Type>
+#        </Plugin>
+
+#        <Plugin "GenericJMX">
+#                <Type "gauge">
+#                        Instance "BlockReportsAvgTime"
+#                        WarningMin 0
+#                        WarningMax 5
+#                        FailureMin 0
+#                        FailureMax 10
+#                </Type>
+#        </Plugin>
+
+#        <Plugin "GenericJMX">
+#                <Type "gauge">
+#                        Instance "CopyBlockOpAvgTime"
+#                        WarningMin 0
+#                        WarningMax 5
+#                        FailureMin 0
+#                        FailureMax 10
+#                </Type>
+#        </Plugin>
+
+#        <Plugin "GenericJMX">
+#                <Type "gauge">
+#                        Instance "ReadBlockOpAvgTime"
+#                        WarningMin 0
+#                        WarningMax 5
+#                        FailureMin 0
+#                        FailureMax 10
+#                </Type>
+#        </Plugin>
+
+#        <Plugin "GenericJMX">
+#                <Type "gauge">
+#                        Instance "ReplaceBlockOpAvgTime"
+#                        WarningMin 0
+#                        WarningMax 5
+#                        FailureMin 0
+#                        FailureMax 10
+#                </Type>
+#        </Plugin>
+
+#        <Plugin "GenericJMX">
+#                <Type "gauge">
+#                        Instance "WriteBlockOpAvgTime"
+#                        WarningMin 0
+#                        WarningMax 5
+#                        FailureMin 0
+#                        FailureMax 10
+#                </Type>
+#        </Plugin>
+
+
+</Threshold>

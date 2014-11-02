@@ -1,0 +1,40 @@
+# Threshold configuration for collectd(1).
+#
+# See the section "THRESHOLD CONFIGURATION" in collectd.conf(5) for details.
+
+# Threshold configuration for namenodes.
+
+<Threshold>
+
+	<Plugin "GenericJMX">
+                <Type "gauge">
+                        Instance "BlockReportAvgTime"
+                        WarningMin 0
+                        WarningMax 5
+                        FailureMin 0
+                        FailureMax 10
+                </Type>
+        </Plugin>
+
+
+#        <Plugin "GenericJMX">
+#                <Type "gauge">
+#                        Instance "SyncsAvgTime"
+#                        WarningMin 0
+#                        WarningMax ?
+#                        FailureMin 0
+#                        FailureMax ?
+#                </Type>
+#        </Plugin>
+
+#        <Plugin "GenericJMX">
+#                <Type "gauge">
+#                        Instance "TransactionsAvgTime"
+#                        WarningMin 0
+#                        WarningMax ?
+#                        FailureMin 0
+#                        FailureMax ?
+#                </Type>
+#        </Plugin>
+
+</Threshold>

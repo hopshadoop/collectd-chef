@@ -1,0 +1,5 @@
+collectd/nn:L/collectd/install,kagent,kmon
+collectd/rm:L/collectd/install,kagent,kmon
+collectd/nm:L/collectd/install,kagent,kmon
+collectd/mysqld:L/collectd/install,kagent,kmon
+collectd/server:L/collectd/install,kagent,kmon

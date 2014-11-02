@@ -1,0 +1,4 @@
+LoadPlugin "exec"
+<Plugin exec>
+  Exec "nobody" "/usr/local/flume/flume-collectd.py" "-p" "flume" "-u" "http://localhost:41414/metrics"
+</Plugin>
