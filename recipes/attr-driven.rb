@@ -37,26 +37,26 @@ end
 
 template "/etc/collectd/alert.py" do
   source "alert.py.erb"
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "770"
   variables({ :dashboard_ip => dashboard_ip })
 end
 
 template "/etc/collectd/filters/filters-generic.conf" do
   source "filters.conf.erb"
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "770"
 end
 
 private_ip = my_private_ip()
 
 template "/etc/collectd/collectd.conf" do
   source "collectd.conf.erb"
-  owner "root"
-  group "root"
-  mode "644"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "664"
   variables({ :dashboard_ip => dashboard_ip,
               :host_ip => private_ip
   })
@@ -67,16 +67,16 @@ end
 
 template "/etc/collectd/collection.conf" do
   source "collection.conf.erb"   
-  owner "root"
-  group "root"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
   mode "644"
   notifies :restart, resources(:service => "collectd")
 end
 
 template "/etc/collectd/thresholds/thresholds-generic.conf" do
   source "thresholds.conf.erb"   
-  owner "root"
-  group "root"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
   mode "644"
   notifies :restart, resources(:service => "collectd")
 end

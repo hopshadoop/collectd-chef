@@ -16,6 +16,19 @@
 # limitations under the License.
 #
 
+group node[:collectd][:group] do
+  action :create
+end
+
+user node[:collectd][:user] do
+#  supports :manage_home => true
+  action :create
+#  home "/home/#{node[:collectd][:user]}"
+  system true
+  shell "/bin/bash"
+end
+
+
 case node[:platform_family]
 when "debian"
   package "collectd" do
@@ -66,40 +79,40 @@ when "rhel"
 end
 
 directory node[:collectd][:data_dir] do
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "770"
 end
 
 directory node[:collectd][:plugin_dir] do
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "770"
 end
 
 
 directory "/etc/collectd" do
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "770"
 end
 
 directory "/etc/collectd/plugins" do
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "770"
 end
 
 directory "/etc/collectd/thresholds" do
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "770"
 end
 
 directory "/etc/collectd/filters" do
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "770"
 end
 
 ['collectd-start.sh', 'collectd-stop.sh', 'collectd-server-start.sh', 'collectd-server-stop.sh'].each do |script|
@@ -107,7 +120,7 @@ end
   template "#{node[:collectd][:plugin_dir]}/#{script}" do
     source "#{script}.erb"
     owner node[:collectd][:user]
-    group node[:collectd][:user]
+    group node[:collectd][:group]
     mode 0655
   end
 end 

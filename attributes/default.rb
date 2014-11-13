@@ -20,7 +20,8 @@
 include_attribute "kagent"
 include_attribute "java"
 
-default[:collectd][:user]                = "admin"
+default[:collectd][:user]                = "collectd"
+default[:collectd][:group]               = "collectd"
 default[:collectd][:password]            = "caramelhops"
 
 default[:collectd][:base_dir]            = "/usr"

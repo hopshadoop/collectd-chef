@@ -3,16 +3,16 @@
 role="collectd-server"
 
 directory "/etc/collectd/#{role}-plugins" do
-  owner "root"
-  group "root"
-  mode "755"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
+  mode "664"
 end
 
 %w(collection thresholds).each do |file|
   template "/etc/collectd/#{file}.conf" do
     source "#{file}.conf.erb"
-    owner "root"
-    group "root"
+    owner node[:collectd][:user]
+    group node[:collectd][:group]
     mode "644"
   end
 end
@@ -83,8 +83,8 @@ private_ip = my_private_ip()
 
 template "/etc/collectd/#{role}.conf" do
   source "#{role}.conf.erb"
-  owner "root"
-  group "root"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
   mode "644"
   variables({ :host_ip => private_ip  })
   notifies :enable, resources(:service => "#{role}")
@@ -93,8 +93,8 @@ end
 
 template "/etc/collectd/auth_file" do
   source "auth_file.erb"
-  owner "root"
-  group "root"
+  owner node[:collectd][:user]
+  group node[:collectd][:group]
   mode "600"
 end
 
