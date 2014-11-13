@@ -16,10 +16,6 @@
 # limitations under the License.
 #
 
-group node[:collectd][:group] do
-  action :create
-end
-
 user node[:collectd][:user] do
 #  supports :manage_home => true
   action :create
