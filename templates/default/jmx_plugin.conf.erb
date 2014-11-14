@@ -263,10 +263,10 @@ LoadPlugin java
                 <Connection>
                         #Service "HDFS"
                         #Role "NameNode"
-                        ServiceURL "service:jmx:rmi:///jndi/rmi://<%= @dashboard_ip %>:<%= node[:hop][:nn][:jmxport] %>/jmxrmi"
+                        ServiceURL "service:jmx:rmi:///jndi/rmi://<%= @dashboard_ip %>:<%= node[:hadoop][:nn][:jmxport] %>/jmxrmi"
                         Host "<%= @my_ip %>"
-                        User "<%= node[:hop][:jmx][:username] %>"
-                        Password "<%= node[:hop][:jmx][:password] %>"
+                        User "<%= node[:hadoop][:jmx][:username] %>"
+                        Password "<%= node[:hadoop][:jmx][:password] %>"
                         Collect "FSNamesystem"
                         Collect "NameNodeActivity"
                         Collect "FSNamesystemState"
@@ -453,10 +453,10 @@ Datanode - http://locahost:5075/jmx
                 <Connection>
                         #Service "HDFS"
                         #Role "DataNode"
-                        ServiceURL "service:jmx:rmi:///jndi/rmi://<%= @dashboard_ip %>:<%= node[:hop][:dn][:jmxport] %>/jmxrmi"
+                        ServiceURL "service:jmx:rmi:///jndi/rmi://<%= @dashboard_ip %>:<%= node[:hadoop][:dn][:jmxport] %>/jmxrmi"
                         Host "<%= @my_ip %>"
-                        User "<%= node[:hop][:jmx][:username] %>"
-                        Password "<%= node[:hop][:jmx][:password] %>"
+                        User "<%= node[:hadoop][:jmx][:username] %>"
+                        Password "<%= node[:hadoop][:jmx][:password] %>"
                         Collect "DataNodeActivity"
                 </Connection>
 -->
@@ -565,10 +565,10 @@ Datanode - http://locahost:5075/jmx
                 <Connection>
                         #Service "YARN"
                         #Role "ResourceManager"
-                        ServiceURL "service:jmx:rmi:///jndi/rmi://<%= @dashboard_ip %>:<%= node[:hop][:rm][:jmxport] %>/jmxrmi"
+                        ServiceURL "service:jmx:rmi:///jndi/rmi://<%= @dashboard_ip %>:<%= node[:hadoop][:rm][:jmxport] %>/jmxrmi"
                         Host "<%=@my_ip %>"
-                        User "<%= node[:hop][:jmx][:username] %>"
-                        Password "<%= node[:hop][:jmx][:password] %>"
+                        User "<%= node[:hadoop][:jmx][:username] %>"
+                        Password "<%= node[:hadoop][:jmx][:password] %>"
                         Collect "ResourceManager"
                 </Connection>
 <% end -%>
@@ -640,10 +640,10 @@ Datanode - http://locahost:5075/jmx
                 <Connection>
                         #Service "YARN"
                         #Role "NodeManager"
-                        ServiceURL "service:jmx:rmi:///jndi/rmi://<%= @dashboard_ip %>:<%= node[:hop][:nm][:jmxport] %>/jmxrmi"
+                        ServiceURL "service:jmx:rmi:///jndi/rmi://<%= @dashboard_ip %>:<%= node[:hadoop][:nm][:jmxport] %>/jmxrmi"
                         Host "<%=@my_ip %>"
-                        User "<%= node[:hop][:jmx][:username] %>"
-                        Password "<%= node[:hop][:jmx][:password] %>"
+                        User "<%= node[:hadoop][:jmx][:username] %>"
+                        Password "<%= node[:hadoop][:jmx][:password] %>"
                         Collect "NodeManager"
                 </Connection>
 <% end -%>
